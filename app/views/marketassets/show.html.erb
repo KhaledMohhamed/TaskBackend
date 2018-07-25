@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @marketasset.name %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @marketasset.value %>
+</p>
+
+<%= link_to 'Edit', edit_marketasset_path(@marketasset) %> |
+<%= link_to 'Back', marketassets_path %>

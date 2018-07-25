@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Profile</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<!--<h2>Your Investment</h2>-->
+
+<%# @investmentArray.each do |investment| %>
+<!--      the $ <%#= investment[0] %> invested in asset <%#= investment[1] %> are now $<%#= investment[2] %> <br>-->
+<%# end %>
+
+<h2>Market Assets</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Value</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @marketasset.each do |marketasset| %>
+    <tr>
+      <td><%= marketasset.id %></td>
+      <td><%= marketasset.name %></td>
+      <td><%= marketasset.value %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<h2>Make Investment</h2>
+
+<%= form_for([@user , @user.invests.build]) do |f| %>
+
+<%#= form_for @invest do |f| %>
+  <p>
+    <%= f.label :investment_Vaule%> <br>
+    <%= f.number_field :investment ,step: :any ,min: 1%>
+  </p>
+
+  <p>
+    <%= f.label :marketasset_ID%> <br>
+    <%= f.select(:marketasset_id, @marketasset .map(&:id), {:include_blank => 'Select a marketasset ID'}) %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+  <%end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

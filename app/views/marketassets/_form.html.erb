@@ -1,0 +1,29 @@
+<%= form_with(model: marketasset, local: true) do |form| %>
+  <% if marketasset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(marketasset.errors.count, "error") %> prohibited this marketasset from being saved:</h2>
+
+      <ul>
+      <% marketasset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :marketasset_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%#= form.text_field :value, id: :marketasset_value %>
+    <%= form.number_field :value ,id: :marketasset_valu,step: :any ,min: 1%>
+
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

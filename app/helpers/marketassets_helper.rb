@@ -1,0 +1,2 @@
+module MarketassetsHelper
+end
