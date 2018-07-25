@@ -18,6 +18,7 @@ default: &default
   password: 6cc239a5585d0074553b57d44efafbece6604c8fd1b7a0b21c288baac263ca8f
   host: ec2-23-23-242-163.compute-1.amazonaws.com
 
+
 development:
   <<: *default
   database: TaskBackend_development
